@@ -1,11 +1,54 @@
+/**
+ * Format date from YYYY-MM-DD to DD/MM/YYYY (Brazilian format)
+ */
+function formatDateBR(dateString) {
+  if (!dateString) return ''
+  const [year, month, day] = dateString.split('-')
+  return `${day}/${month}/${year}`
+}
+
+/**
+ * Find the next upcoming session from sessoes array
+ */
+function getNextSession(sessoes) {
+  if (!sessoes || !Array.isArray(sessoes) || sessoes.length === 0) {
+    return null
+  }
+
+  const now = new Date()
+  now.setHours(0, 0, 0, 0) // Reset to start of day for comparison
+
+  // Filter future sessions and sort by date
+  const futureSessions = sessoes
+    .filter(sessao => {
+      if (!sessao.data) return false
+      const sessionDate = new Date(sessao.data + 'T00:00:00')
+      return sessionDate >= now
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.data + 'T' + (a.horario || '00:00'))
+      const dateB = new Date(b.data + 'T' + (b.horario || '00:00'))
+      return dateA - dateB
+    })
+
+  return futureSessions.length > 0 ? futureSessions[0] : sessoes[0]
+}
+
 export function createFilmeCard(filme) {
   const { titulo, diretor, pais, duracao, nota, sinopse, sessoes } = filme
 
+  // Handle missing fields gracefully
+  const displayTitulo = titulo || 'Título não disponível'
+  const displayDiretor = diretor || 'Não informado'
+  const displayPais = pais || 'Não informado'
+  const displayDuracao = duracao || '?'
+  const displaySinopse = sinopse || 'Sinopse não disponível.'
+
   // Format next session
-  const nextSession = sessoes && sessoes.length > 0 ? sessoes[0] : null
+  const nextSession = getNextSession(sessoes)
   const sessionText = nextSession
-    ? `${nextSession.sala} - ${nextSession.data} às ${nextSession.horario}`
-    : 'Sem sessões disponíveis'
+    ? `${nextSession.sala || 'Sala'} - ${formatDateBR(nextSession.data)} às ${nextSession.horario || '??:??'}`
+    : 'Sem sessões programadas'
 
   // Rating color based on score
   const getRatingColor = rating => {
@@ -20,7 +63,7 @@ export function createFilmeCard(filme) {
       <!-- Header: Title + Rating -->
       <div class="flex justify-between items-start mb-3">
         <h3 class="text-lg font-semibold text-text-primary group-hover:text-accent-blue transition-colors duration-300 flex-1">
-          ${titulo}
+          ${displayTitulo}
         </h3>
         ${
           nota
@@ -39,16 +82,16 @@ export function createFilmeCard(filme) {
       <!-- Director & Country -->
       <div class="mb-3 space-y-1">
         <p class="text-sm text-text-primary/70">
-          <span class="font-medium">Direção:</span> ${diretor}
+          <span class="font-medium">Direção:</span> ${displayDiretor}
         </p>
         <p class="text-sm text-text-primary/70">
-          <span class="font-medium">País:</span> ${pais} | ${duracao} min
+          <span class="font-medium">País:</span> ${displayPais} | ${displayDuracao} min
         </p>
       </div>
 
       <!-- Synopsis -->
       <p class="text-sm text-text-primary/60 mb-4 line-clamp-3">
-        ${sinopse}
+        ${displaySinopse}
       </p>
 
       <!-- Next Session -->
