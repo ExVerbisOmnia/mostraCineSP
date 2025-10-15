@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0f1419;
+  --color-accent-blue: #7dd3fc;
+  --color-accent-pink: #f9a8d4;
+  --color-text-primary: #e2e8f0;
+  
+  --font-family-sora: 'Sora', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sora);
+}

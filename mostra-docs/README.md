@@ -79,54 +79,6 @@ The official Mostra SP website publishes fragmented scheduling information (only
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js >= 18.0.0
-- npm or yarn
-- Firebase CLI
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/mostraSp.git
-   cd mostraSp
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   
-   Create a `.env` file in the root directory:
-   ```env
-   VITE_FIREBASE_API_KEY=your_api_key
-   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   VITE_TMDB_API_KEY=your_tmdb_api_key
-   ```
-
-4. **Initialize Firebase**
-   ```bash
-   firebase login
-   firebase init
-   ```
-   Select: Hosting, Functions, Firestore
-
-5. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
----
 
 ## 📁 Project Structure
 
@@ -162,48 +114,6 @@ mostraSp/
 ├── .prettierrc                   # Prettier rules
 ├── package.json
 └── README.md
-```
-
----
-
-## 💻 Development
-
-### Available Scripts
-
-```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Lint code
-npm run lint
-
-# Format code
-npm run format
-
-# Deploy to Firebase
-npm run deploy
-```
-
-### Firebase Commands
-
-```bash
-# Deploy hosting only
-firebase deploy --only hosting
-
-# Deploy functions only
-firebase deploy --only functions
-
-# View function logs
-firebase functions:log
-
-# View Firestore data
-firebase firestore:read filmes
 ```
 
 ---
@@ -259,82 +169,12 @@ Desktop: > 1024px
 }
 ```
 
----
-
-## 🚢 Deployment
-
-### Production Build
-
-1. **Build the project**
-   ```bash
-   npm run build
-   ```
-
-2. **Deploy to Firebase**
-   ```bash
-   firebase deploy
-   ```
-
-3. **Verify deployment**
-   - Check Firebase Console for hosting URL
-   - Test all features in production
-   - Monitor Cloud Function logs
-
 ### Automated Updates
 
 Cloud Scheduler runs the scraper every 12 hours:
 - **Schedule:** `0 */12 * * *` (every 12 hours)
 - **Timezone:** America/Sao_Paulo
 - **Target:** Cloud Function `scrapeMostra`
-
----
-
-## 📈 Performance & Costs
-
-### Firebase Free Tier Coverage
-
-| Service       | Free Limit        | Estimated Usage | Status |
-|---------------|-------------------|-----------------|--------|
-| Firestore     | 50k reads/day     | ~500/day        | ✅ Free |
-| Functions     | 2M invoc/month    | ~60/month       | ✅ Free |
-| Hosting       | 10GB transfer/mo  | ~500MB/mo       | ✅ Free |
-
-**💰 Total cost: $0/month** with significant room for growth.
-
----
-
-## 🗺️ Roadmap
-
-### Phase 1 ✅ (Current)
-- Core search and filter functionality
-- Automated data scraping
-- Responsive UI
-
-### Phase 2 (V2.0)
-- [ ] User authentication (save favorites)
-- [ ] Push notifications for new films
-- [ ] Google Maps integration for screening rooms
-- [ ] Google Calendar integration
-- [ ] YouTube trailer embeds
-- [ ] TMDB poster images
-
-### Phase 3 (V3.0)
-- [ ] Progressive Web App (PWA)
-- [ ] Offline mode
-- [ ] Multi-language support (PT/EN/ES)
-- [ ] Social sharing features
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'feat: add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ### Commit Convention
 
@@ -357,9 +197,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
+**Gusrodgs**
+- GitHub: [@ExVerbisOmnia](https://github.com/ExVerbisOmnia
 
 ---
 
@@ -367,14 +206,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [Mostra Internacional de Cinema de São Paulo](https://www.mostra.org)
 - [The Movie Database (TMDB)](https://www.themoviedb.org/)
-- [Firebase](https://firebase.google.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
 
 ---
 
 ## 📞 Support
 
-For questions or issues, please open an issue on GitHub or contact [your.email@example.com](mailto:your.email@example.com).
+For questions or issues, please open an issue on GitHub or me (mailto:gustavo.rodriguez.ars@gmail.com).
 
 ---
 
