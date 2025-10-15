@@ -11,8 +11,32 @@
   </head>
   <body>
     <div id="app">
-      <h1 style="font-size: 2rem; font-weight: 700; margin: 2rem;">Mostra SP</h1>
-      <p style="margin: 0 2rem;">Tailwind CSS v4 + Vite + Firebase ✨</p>
+      <!-- Header -->
+      <header class="bg-bg-primary border-b border-accent-blue/20 px-4 py-6 md:px-8 md:py-8">
+        <div class="max-w-7xl mx-auto">
+          <h1 class="text-3xl md:text-5xl font-bold text-accent-blue mb-2">
+            Mostra SP 2025
+          </h1>
+          <p class="text-sm md:text-base text-text-primary/70">
+            49ª Mostra Internacional de Cinema de São Paulo
+          </p>
+        </div>
+      </header>
+
+      <!-- Subheader with Search & Filters -->
+      <section class="bg-bg-primary px-4 py-6 md:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div id="search-bar-container"></div>
+          <div id="filter-panel-container" class="mt-4"></div>
+        </div>
+      </section>
+
+      <!-- Main Content - Film Grid -->
+      <main class="px-4 py-8 md:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div id="films-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </main>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

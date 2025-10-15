@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0f1419;
+  --color-accent-blue: #7dd3fc;
+  --color-accent-pink: #f9a8d4;
+  --color-text-primary: #e2e8f0;
+
+  --font-family-sora: 'Sora', sans-serif;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sora);
+  min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Film Cards Animation */
+.filme-card {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.filme-card:nth-child(1) { animation-delay: 0.1s; }
+.filme-card:nth-child(2) { animation-delay: 0.2s; }
+.filme-card:nth-child(3) { animation-delay: 0.3s; }
+.filme-card:nth-child(4) { animation-delay: 0.4s; }
+.filme-card:nth-child(5) { animation-delay: 0.5s; }
+.filme-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Line clamp for synopsis */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-blue);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-pink);
+}
+
+/* Input focus glow */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.1);
+}
+
+/* Button hover effects */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Dropdown animations */
+[data-dropdown] {
+  animation: slideDown 0.2s ease-out;
+}
+
+/* Filter badge styles (for active filters - future enhancement) */
+.filter-badge {
+  position: relative;
+}
+
+.filter-badge::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-accent-pink);
+  color: var(--color-bg-primary);
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+/* Loading state */
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Responsive text utilities */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .filme-card {
+    animation-delay: 0s !important;
+  }
+}
