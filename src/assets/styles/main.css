@@ -61,17 +61,17 @@ html {
 }
 
 /* Film Cards Animation */
-.filme-card {
+.film-card {
   animation: fadeIn 0.5s ease-out forwards;
   opacity: 0;
 }
 
-.filme-card:nth-child(1) { animation-delay: 0.1s; }
-.filme-card:nth-child(2) { animation-delay: 0.2s; }
-.filme-card:nth-child(3) { animation-delay: 0.3s; }
-.filme-card:nth-child(4) { animation-delay: 0.4s; }
-.filme-card:nth-child(5) { animation-delay: 0.5s; }
-.filme-card:nth-child(6) { animation-delay: 0.6s; }
+.film-card:nth-child(1) { animation-delay: 0.1s; }
+.film-card:nth-child(2) { animation-delay: 0.2s; }
+.film-card:nth-child(3) { animation-delay: 0.3s; }
+.film-card:nth-child(4) { animation-delay: 0.4s; }
+.film-card:nth-child(5) { animation-delay: 0.5s; }
+.film-card:nth-child(6) { animation-delay: 0.6s; }
 
 /* Line clamp for synopsis */
 .line-clamp-3 {
@@ -151,7 +151,7 @@ button:active {
     font-size: 2rem;
   }
 
-  .filme-card {
+  .film-card {
     animation-delay: 0s !important;
   }
 }
